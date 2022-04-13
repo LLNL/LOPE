@@ -1,0 +1,103 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.0                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+    "(Phi1|Phi2|Psi1|Psi2)"
+    {
+        solver          GAMG;
+        tolerance       1e-14;
+        relTol          0.1;
+        smoother        GaussSeidel;
+        maxIter         30;
+    }
+
+    "(U|Ua|k|epsilon)"
+    {
+        solver          smoothSolver;
+        smoother        GaussSeidel;
+        nSweeps         2;
+        tolerance       1e-20;
+        relTol          0.1;
+    }
+    
+    "(p|pa)"
+    {
+        solver          GAMG;
+        tolerance       1e-20;
+        relTol          0.01;
+        smoother        GaussSeidel;
+        maxIter         30;
+    }
+    
+    "(CO|CR)"
+    {
+//        solver          PBiCG;
+//        preconditioner  DILU;
+        solver          smoothSolver;
+        smoother        GaussSeidel;
+        nsweeps         1;
+        relTol          0.1;        
+        tolerance       1e-14;
+        maxIter         30;
+    }
+
+    "(COa|CRa)"
+    {
+        solver          PBiCG;
+        preconditioner  DILU;
+        nsweeps         1;
+        relTol          0.1;
+        tolerance       1e-14;
+        maxIter         30;
+    }
+    
+    "(gammaAux|sensRaw)"
+    {
+        solver          smoothSolver;
+        smoother        GaussSeidel;
+        nsweeps         1;
+        relTol          1e-8;        
+        tolerance       1e-8;
+        maxIter         2000;
+    }
+
+}
+
+SIMPLE
+{
+    nNonOrthogonalCorrectors 0;
+    pRefCell 0;
+    pRefValue 0;
+}
+
+relaxationFactors
+{
+    fields
+    {
+        "(p|pa)"        0.3;
+    }
+    equations
+    {
+        "(U|Ua)"        0.7;
+        "(k|epsilon)"   0.7;
+        "(CO|CR)"       1.0;
+    }
+}
+
+
+// ************************************************************************* //

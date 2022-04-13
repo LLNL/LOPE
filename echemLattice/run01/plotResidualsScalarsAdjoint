@@ -1,0 +1,10 @@
+set logscale y
+set title "Residuals"
+set xlabel 'Iteration'
+set ylabel 'Residual'
+plot "<cat run.log | grep 'for COa,' | cut -d ' ' -f 9  | tr -d ','" title 'COa' w l, \
+     "<cat run.log | grep 'for CRa,' | cut -d ' ' -f 9  | tr -d ','" title 'CRa' w l, \
+     "<cat run.log | grep 'for Psi1,' | cut -d ' ' -f 9  | tr -d ','" title 'Psi1' w l, \
+     "<cat run.log | grep 'for Psi2,' | cut -d ' ' -f 9  | tr -d ','" title 'Psi2' w l                     
+pause 1
+reread

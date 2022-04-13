@@ -1,0 +1,10 @@
+set title "Objective"
+set xlabel 'Iteration'
+set ylabel 'Objective'
+set logscale y
+plot "<cat run.log | grep 'Power Loss' | cut -d ' ' -f 5 " title 'Objective' w l, \
+     "<cat run.log | grep 'Flow Power' | cut -d ' ' -f 4 " title 'Flow' w l, \
+     "<cat run.log | grep 'Electric Power' | cut -d ' ' -f 4 " title 'Electric' w l
+pause 1
+reread
+

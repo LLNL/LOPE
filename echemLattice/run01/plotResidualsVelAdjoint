@@ -1,0 +1,8 @@
+set logscale y
+set title "Residuals"
+set xlabel 'Iteration'
+set ylabel 'Residual'
+plot "<cat run.log | grep 'for Uax,' | cut -d ' ' -f 9  | tr -d ','" title 'Uax' w l, \
+     "<cat run.log | grep 'for Uay,' | cut -d ' ' -f 9  | tr -d ','" title 'Uay' w l
+pause 1
+reread

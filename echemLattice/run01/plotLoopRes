@@ -1,0 +1,10 @@
+set logscale y
+set title "Loop Residuals"
+set xlabel 'Iteration'
+set ylabel 'Residual'
+plot "<cat run.log | grep 'Flow Loop Res' | cut -d ' ' -f 8 " title 'Flow' w l, \
+     "<cat run.log | grep 'Scalar Loop Res' | cut -d ' ' -f 8 " title 'Scalar' w l, \
+     "<cat run.log | grep 'Scalar Adj Loop Res' | cut -d ' ' -f10 " title 'Scalar Adj' w l, \
+     "<cat run.log | grep 'Flow Adj Loop Res' | cut -d ' ' -f10 " title 'Flow Adj' w l 
+pause 1
+reread

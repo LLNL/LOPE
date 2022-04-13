@@ -1,0 +1,13 @@
+SOURCE = \
+adjntEchemPotentialsPotentials/adjntEchemPotentialsPotentialsFvPatchScalarField.C \
+adjntEchemConcCO/adjntEchemConcCOFvPatchScalarField.C \
+adjntEchemConcCR/adjntEchemConcCRFvPatchScalarField.C \
+adjntEchemVelocity/adjntEchemVelocityFvPatchVectorField.C \
+adjntEchemPressure/adjntEchemPressureFvPatchScalarField.C \
+fixedCurrent/fixedCurrentFvPatchScalarField.C \
+fixedCurrentPsi2/fixedCurrentPsi2FvPatchScalarField.C \
+concCOConvective/concCOConvectiveFvPatchScalarField.C \
+adjntCOObjCO/adjntCOObjCOFvPatchScalarField.C \
+echemTopology.C \
+
+# sources

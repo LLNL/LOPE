@@ -1,0 +1,10 @@
+#!/bin/bash
+#MSUB -N design
+#MSUB -A sosu
+#MSUB -l walltime=12:00:00
+#MSUB -j oe
+#MSUB -r n
+#MSUB -l nodes=4
+#MSUB -l gres=lustre2
+
+srun -N 4 -n 144 echemLatticeSmoothSD -parallel 2>&1 | tee run.log

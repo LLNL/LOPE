@@ -7,7 +7,9 @@ This code performs an optimization over the structure of a porous electrode form
 V. A. Beck, J. J. Wong, C. F. Jekel, D. A. Tortorelli, S. E. Baker, E. B. Duoss and M. A. Worsley, Computational design of microarchitected porous electrodes for redox flow batteries, _J. Power Sources_, 2021, **512**, 230453. 
 
 
-Please cite the reference above, [Beck et al., 2021](https://doi.org/10.1016/j.jpowsour.2021.230453), if using any of this code in your own work.
+Please cite the reference above https://doi.org/10.1016/j.jpowsour.2021.230453, and/or the code https://doi.org/10.11578/dc.20220413.1 if using any of this code in your own work.
+
+DOI: https://doi.org/10.11578/dc.20220413.1
 
 ## Build
 
